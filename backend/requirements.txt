@@ -1,0 +1,15 @@
+# Web framework + server
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+
+# Database
+SQLAlchemy==2.0.36
+alembic==1.14.0
+psycopg[binary]==3.2.3
+
+# Settings from environment / .env
+pydantic-settings==2.6.1
+
+# Tests (httpx is needed by FastAPI's TestClient)
+pytest==8.3.3
+httpx==0.27.2

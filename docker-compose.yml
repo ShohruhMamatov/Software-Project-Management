@@ -1,0 +1,38 @@
+# LUMI dev stack. Run from the repo root:  docker compose up --build
+# Values come from .env in this folder (copy .env.example); the defaults below
+# let it start even without a .env file.
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-lumi}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change-me}
+      POSTGRES_DB: ${POSTGRES_DB:-lumi}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  api:
+    build: ./backend
+    environment:
+      # Inside the compose network the database host is "db", not localhost.
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-lumi}:${POSTGRES_PASSWORD:-change-me}@db:5432/${POSTGRES_DB:-lumi}
+      MEDIA_DIR: /app/media
+    ports:
+      - "8000:8000"
+    volumes:
+      - media:/app/media
+    depends_on:
+      db:
+        condition: service_healthy  # wait until Postgres accepts connections
+
+volumes:
+  pgdata:
+  media:
