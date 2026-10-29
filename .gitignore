@@ -58,3 +58,7 @@ Thumbs.db
 .claude
 Claude.md
 lumi_backlog_jira.csv
+# ---------- Local dev database (SQLite) ----------
+*.db
+lumi_backlog_jira
+frontend-spec.md
