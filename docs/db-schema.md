@@ -41,6 +41,8 @@ erDiagram
         varchar rtsp_password_encrypted "Fernet"
         float threshold "default 0.5"
         bool is_active
+        timestamptz last_seen_at "edge agent heartbeat"
+        varchar snapshot_path "latest frame, for zone drawing"
         timestamptz created_at
     }
     ZONES {
@@ -71,7 +73,7 @@ erDiagram
 |---|---|---|
 | `stores` | One physical shop. | `api_key_hash` authenticates that store's edge agent. Only the hash is stored. |
 | `users` | Managers and staff who log in. | `role` is `owner` or `staff`. `store_id` is nullable because an owner registers before creating a store. |
-| `cameras` | Hikvision cameras in a store. | The RTSP URL is built from `ip`, `port`, `channel` + stream (`02` sub for ML, `01` main for clips). The password is Fernet-encrypted. `threshold` = per-camera sensitivity. |
+| `cameras` | Hikvision cameras in a store. | The RTSP URL is built from `ip`, `port`, `channel` + stream (`02` sub for ML, `01` main for clips). The password is Fernet-encrypted. `threshold` = per-camera sensitivity. `last_seen_at` drives the online badge; `snapshot_path` is the frame zones are drawn on. |
 | `zones` | Checkout / exit areas drawn on a camera view. | `polygon` points are normalised to 0..1 so they don't depend on resolution. |
 | `events` | One flagged moment waiting for human review. | Media files live on disk, and only paths relative to `MEDIA_DIR` are stored. |
 

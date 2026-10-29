@@ -21,6 +21,10 @@ services:
 
   api:
     build: ./backend
+    # JWT_SECRET, CAMERA_ENC_KEY, CORS_ORIGINS, ... come from .env (optional for a quick start).
+    env_file:
+      - path: .env
+        required: false
     environment:
       # Inside the compose network the database host is "db", not localhost.
       DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-lumi}:${POSTGRES_PASSWORD:-change-me}@db:5432/${POSTGRES_DB:-lumi}

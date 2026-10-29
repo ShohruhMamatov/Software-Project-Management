@@ -9,6 +9,15 @@ psycopg[binary]==3.2.3
 
 # Settings from environment / .env
 pydantic-settings==2.6.1
+email-validator==2.2.0
+
+# Auth: JWT tokens, password hashing, Fernet encryption of camera passwords
+PyJWT==2.10.1
+bcrypt==4.2.1
+cryptography==43.0.3
+
+# File uploads (clips/snapshots from the edge agent)
+python-multipart==0.0.17
 
 # Tests (httpx is needed by FastAPI's TestClient)
 pytest==8.3.3

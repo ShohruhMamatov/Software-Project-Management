@@ -106,6 +106,10 @@ class Camera(Base):
     # Alert if the classifier score is >= threshold (adjustable sensitivity per camera).
     threshold: Mapped[float] = mapped_column(Float, default=0.5)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True)
+    # Updated by the edge agent's heartbeat; used for the online/offline badge.
+    last_seen_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    # Latest reference frame from the edge agent (relative to MEDIA_DIR), used to draw zones.
+    snapshot_path: Mapped[str | None] = mapped_column(String(512))
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
     store: Mapped[Store] = relationship(back_populates="cameras")

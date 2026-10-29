@@ -16,5 +16,19 @@ class Settings(BaseSettings):
     database_url: str = "postgresql+psycopg://lumi:change-me@localhost:5432/lumi"
     media_dir: str = "./media"
 
+    # JWT for dashboard users. The default is for local dev only; set a real secret in .env.
+    jwt_secret: str = "dev-only-change-me"
+    jwt_expire_minutes: int = 60 * 12
+
+    # Any secret string; a Fernet key is derived from it to encrypt camera passwords.
+    # Changing it makes already-saved camera passwords unreadable.
+    camera_enc_key: str = "dev-only-change-me"
+
+    # Frontend origins allowed to call the API (comma-separated).
+    cors_origins: str = "http://localhost:5173"
+
+    # A camera counts as "online" if the edge agent reported it within this many seconds.
+    camera_online_seconds: int = 120
+
 
 settings = Settings()
