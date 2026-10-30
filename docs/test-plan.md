@@ -1,6 +1,6 @@
 # LUMI: Test Plan
 
-Jira: SCRUM-31. Automated backend tests: [PR #5](https://github.com/ShohruhMamatov/Software-Project-Management/pull/5). How to write and run them: [testing-guide.md](testing-guide.md).
+Jira: SCRUM-31. Automated backend tests: [PR #7](https://github.com/ShohruhMamatov/Software-Project-Management/pull/7). How to write and run them: [testing-guide.md](testing-guide.md).
 
 ## 1. Scope
 
