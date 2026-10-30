@@ -157,6 +157,6 @@ Date: 2026-10-30. Code: `main` at `d6ea4c7`. Run with `uvicorn` and a local Post
 
 | Risk | What to do |
 |---|---|
-| SQLite hides Postgres behaviour (3 of the defects above did not show on SQLite) | Run the whole suite on Postgres in CI |
+| SQLite hides Postgres behaviour (SCRUM-59 and SCRUM-61 did not show on SQLite) | Run the whole suite on Postgres in CI |
 | Detection cannot be tested until the model and the agent exist | Keep the blocked cases in this plan, run them in SCRUM-32 |
 | Few real clips for evaluation | Use staged clips from SCRUM-39 |
