@@ -3,9 +3,9 @@ import pytest
 from tests.conftest import xfail_on_postgres
 from tests.helpers import PASSWORD, TRIANGLE, agent_key, camera_body, create_event, heartbeat, post_event
 
-BUG_NON_FINITE = "NaN or Infinity in the 422 body crashes JSONResponse: 500"
-BUG_HUGE_INT = "integer outside the DB range reaches the query: 500"
-BUG_NUL = "Postgres cannot store NUL characters: 500"
+BUG_NON_FINITE = "SCRUM-57: NaN or Infinity in the 422 body crashes JSONResponse: 500"
+BUG_HUGE_INT = "SCRUM-58: integer outside the DB range reaches the query: 500"
+BUG_NUL = "SCRUM-59: Postgres cannot store NUL characters: 500"
 
 LONG = "x" * 121
 HUGE = 10**30

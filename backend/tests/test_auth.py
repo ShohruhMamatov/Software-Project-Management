@@ -8,7 +8,7 @@ from app.models import User
 from app.security import JWT_ALGORITHM
 from tests.helpers import PASSWORD, bearer, register
 
-BUG_PASSWORD_BYTES = "password over 72 bytes is accepted and truncated by bcrypt"
+BUG_PASSWORD_BYTES = "SCRUM-63: password over 72 bytes is accepted and truncated by bcrypt"
 
 
 def login(client, email="owner@lumi.uz", password=PASSWORD):

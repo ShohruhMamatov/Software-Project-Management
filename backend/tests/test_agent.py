@@ -22,7 +22,7 @@ from tests.helpers import (
     post_event,
 )
 
-BUG_ORPHAN_CLIP = "clip stays on disk when the snapshot is rejected"
+BUG_ORPHAN_CLIP = "SCRUM-62: clip stays on disk when the snapshot is rejected"
 
 
 def config(client, api_key):

@@ -4,7 +4,7 @@ from app.models import Store
 from app.security import hash_api_key
 from tests.helpers import agent_key, register
 
-BUG_NULL_NAME = "null name reaches a NOT NULL column: 500"
+BUG_NULL_NAME = "SCRUM-60: null name reaches a NOT NULL column: 500"
 
 
 def test_create_store_returns_api_key(client):

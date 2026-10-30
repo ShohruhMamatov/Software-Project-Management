@@ -5,7 +5,7 @@ import pytest
 from tests.conftest import postgres_only
 from tests.helpers import CLIP, FAKE_JPEG, FAKE_WEBM, SNAPSHOT, create_camera, create_event, media_files
 
-BUG_UTC_SUFFIX = "Pydantic serialises UTC as Z, the contract says +00:00"
+BUG_UTC_SUFFIX = "SCRUM-64: Pydantic serialises UTC as Z, the contract says +00:00"
 BASE_TIME = datetime(2026, 10, 29, 14, 0, tzinfo=timezone.utc)
 
 

@@ -21,7 +21,7 @@ from tests.helpers import (
     media_files,
 )
 
-BUG_LONG_PASSWORD = "encrypted password does not fit String(512): 500"
+BUG_LONG_PASSWORD = "SCRUM-61: encrypted password does not fit String(512): 500"
 
 
 def agent_camera(client, owner, camera_id):
