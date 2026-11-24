@@ -52,7 +52,7 @@ pytest
 
 ## Working rules
 
-- Branch names and commits include the Jira key, e.g. `LUMI-12-auth-api`.
+- Branch names and commits include the Jira key, e.g. `feature/SCRUM-12-auth-api`; PR titles look like `SCRUM-12: Add auth API`. See [docs/change-control-policy.md](docs/change-control-policy.md).
 - `main` is protected: open a PR, 1 review required.
 - Never commit secrets or camera credentials. Use `.env` (copied from `.env.example`).
 - No face recognition; store only flagged clips.

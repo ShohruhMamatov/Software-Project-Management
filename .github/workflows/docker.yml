@@ -1,0 +1,23 @@
+name: docker
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: docker-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: docker-validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Fails if docker-compose.yml is malformed (it has defaults, so no .env is needed).
+      - run: docker compose config --quiet
+      # Proves the backend image still builds. Nothing is pushed or deployed.
+      - run: docker build ./backend
